@@ -32,7 +32,11 @@ https://kei99-web3.github.io/casper-proofpay-rwa-agent/
 
 ## Demo Video
 
-To be filled after public video upload.
+Draft video URL:
+
+https://github.com/kei99-web3/casper-proofpay-rwa-agent/raw/main/media/casper-proofpay-demo-draft.mp4
+
+Before final submission, replace or supplement this with a walkthrough that includes the Casper Testnet transaction hash.
 
 ## Casper Testnet Contract Address
 

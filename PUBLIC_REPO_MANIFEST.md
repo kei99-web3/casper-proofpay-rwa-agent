@@ -6,6 +6,8 @@ URL: https://github.com/kei99-web3/casper-proofpay-rwa-agent
 
 Demo URL: https://kei99-web3.github.io/casper-proofpay-rwa-agent/
 
+Draft video URL: https://github.com/kei99-web3/casper-proofpay-rwa-agent/raw/main/media/casper-proofpay-demo-draft.mp4
+
 Purpose: public candidate repository for the Casper Agentic Buildathon 2026.
 
 ## Included
@@ -13,6 +15,7 @@ Purpose: public candidate repository for the Casper Agentic Buildathon 2026.
 - dependency-free Node.js proof engine
 - tests
 - static demo
+- short draft demo video
 - MCP-style tool schemas
 - x402-shaped payment flow mock
 - Odra-style Casper proof receipt registry scaffold
