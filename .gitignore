@@ -1,0 +1,13 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+*.pem
+*.key
+*.secret
+*.log
+wallet*
+keys/
+private/
+.DS_Store

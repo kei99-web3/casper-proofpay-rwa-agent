@@ -1,0 +1,21 @@
+{
+  "name": "casper-proofpay-rwa-agent",
+  "version": "0.1.0",
+  "description": "Agentic RWA proof service with x402-shaped payments, MCP-style verification, and Casper Testnet receipt design.",
+  "main": "src/index.js",
+  "scripts": {
+    "demo": "node src/index.js",
+    "test": "node test/proofpay-agent.test.js",
+    "verify": "npm test && node src/index.js"
+  },
+  "keywords": [
+    "casper",
+    "agentic-ai",
+    "x402",
+    "mcp",
+    "rwa",
+    "proof"
+  ],
+  "author": "kei99-web3",
+  "license": "MIT"
+}
