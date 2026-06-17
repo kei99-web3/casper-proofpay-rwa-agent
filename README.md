@@ -99,4 +99,4 @@ This repository does not contain:
 - live x402 facilitator credentials
 - Casper Testnet deploy secrets
 
-See `docs/APPROVAL_AND_SECURITY.md` for the publication and deploy boundary.
+See `docs/APPROVAL_AND_SECURITY.md` for the publication and deploy boundary, and `docs/TESTNET_DEPLOYMENT_PACKET.md` for the user-controlled Casper Testnet proof step.
