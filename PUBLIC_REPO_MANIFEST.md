@@ -2,6 +2,10 @@
 
 Repository: `casper-proofpay-rwa-agent`
 
+URL: https://github.com/kei99-web3/casper-proofpay-rwa-agent
+
+Demo URL: https://kei99-web3.github.io/casper-proofpay-rwa-agent/
+
 Purpose: public candidate repository for the Casper Agentic Buildathon 2026.
 
 ## Included

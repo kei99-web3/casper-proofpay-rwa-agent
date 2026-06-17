@@ -6,6 +6,10 @@ It lets an AI buyer agent purchase a verified real-world-asset revenue proof thr
 
 Current status: local deterministic prototype and Casper Testnet receipt design. The repository contains no wallet, private key, faucet token, API key, customer data, or live transaction.
 
+Public repository: https://github.com/kei99-web3/casper-proofpay-rwa-agent
+
+Demo page: https://kei99-web3.github.io/casper-proofpay-rwa-agent/
+
 ## Why This Fits Casper
 
 The Casper Agentic Buildathon asks builders to create production-ready Agentic AI applications around Casper, especially DeFi and RWA, with a transaction-producing Casper Testnet component, open-source GitHub repository, and demo video.
@@ -35,7 +39,7 @@ npm test
 npm run demo
 ```
 
-Open `demo/index.html` in a browser to view the judge-facing walkthrough.
+Open `demo/index.html` in a browser or use the GitHub Pages demo URL to view the judge-facing walkthrough.
 
 ## Project Structure
 

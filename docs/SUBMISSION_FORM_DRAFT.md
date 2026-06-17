@@ -24,7 +24,11 @@ MCP-style tools let downstream agents verify the proof and inspect the issuer re
 
 ## Repository
 
-To be filled after public repo creation.
+https://github.com/kei99-web3/casper-proofpay-rwa-agent
+
+## Hosted Demo
+
+https://kei99-web3.github.io/casper-proofpay-rwa-agent/
 
 ## Demo Video
 
