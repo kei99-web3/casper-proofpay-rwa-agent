@@ -39,9 +39,12 @@ This project targets that brief directly:
 ```bash
 npm test
 npm run demo
+npm run payload
 ```
 
 Open `demo/index.html` in a browser or use the GitHub Pages demo URL to view the judge-facing walkthrough.
+
+`npm run payload` prints the exact deterministic `record_proof_receipt` argument set that should be used for the Casper Testnet receipt transaction. `npm run readiness` checks which final submission fields are still missing; it is expected to report `needs_more_evidence` until the Testnet contract hash and transaction hash are filled.
 
 The current MP4 is a short draft walkthrough. Before final DoraHacks submission, replace it or supplement it with a recorded Testnet transaction walkthrough after the Casper deploy is complete.
 
@@ -53,6 +56,10 @@ src/
   proofpay-agent.js        Deterministic proof engine
   x402-mock.js             x402-shaped challenge/payment mock
   mcp-tools.js             MCP-style verification tool wrappers
+  submission-payload.js    Deterministic Testnet receipt args
+scripts/
+  generate-submission-payload.js
+  check-readiness.js
 contract/
   proof_receipt_registry.rs  Odra-style Casper contract scaffold
   README.md                  Testnet deployment plan
@@ -63,6 +70,8 @@ docs/
   DEMO_VIDEO_SCRIPT.md
   APPROVAL_AND_SECURITY.md
   SUBMISSION_FORM_DRAFT.md
+  USER_TESTNET_ACTION_GUIDE_JA.md
+  FINAL_SUBMISSION_CHECKLIST.md
 ```
 
 ## Casper Testnet Component

@@ -2,6 +2,7 @@
 
 const assert = require("assert");
 const { createMcpTools } = require("../src/mcp-tools");
+const { createSubmissionPayload } = require("../src/submission-payload");
 const {
   DEFAULT_REVENUE_BATCH,
   runProofPayScenario,
@@ -47,9 +48,20 @@ function testDeterminism() {
   assert.strictEqual(first.casperTransactionPlan.args.proof_root, second.casperTransactionPlan.args.proof_root);
 }
 
+function testSubmissionPayload() {
+  const scenario = runProofPayScenario();
+  const payload = createSubmissionPayload();
+  assert.strictEqual(payload.projectName, "Casper ProofPay: Revenue Proof Market for AI Agents");
+  assert.strictEqual(payload.chainName, "casper-test");
+  assert.strictEqual(payload.entryPoint, "record_proof_receipt");
+  assert.deepStrictEqual(payload.proofReceiptArgs, scenario.casperTransactionPlan.args);
+  assert.strictEqual(payload.localEvidence.receiptHash, scenario.receipt.receiptHash);
+}
+
 testRevenueValidation();
 testProofPayScenario();
 testMcpToolShape();
 testDeterminism();
+testSubmissionPayload();
 
 console.log("proofpay-agent.test.js passed");

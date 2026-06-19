@@ -5,6 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "demo": "node src/index.js",
+    "payload": "node scripts/generate-submission-payload.js",
+    "readiness": "node scripts/check-readiness.js",
     "test": "node test/proofpay-agent.test.js",
     "verify": "npm test && node src/index.js"
   },

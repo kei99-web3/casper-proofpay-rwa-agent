@@ -16,7 +16,13 @@ Codex/automation should not take custody of private keys, seed phrases, or walle
 1. Create or select a Casper Testnet account.
 2. Request faucet funds.
 3. Build/deploy `contract/proof_receipt_registry.rs` or an equivalent Odra/Casper contract.
-4. Call `record_proof_receipt` with the local proof payload:
+4. Generate the local proof payload:
+
+```bash
+npm run payload
+```
+
+5. Call `record_proof_receipt` with the generated `proofReceiptArgs`:
 
 ```json
 {
@@ -29,12 +35,24 @@ Codex/automation should not take custody of private keys, seed phrases, or walle
 }
 ```
 
-5. Update `docs/SUBMISSION_FORM_DRAFT.md` with the contract address/hash and transaction hash.
-6. Record or update the demo video so it shows the Testnet proof.
+6. Update `docs/SUBMISSION_FORM_DRAFT.md` with the contract address/hash and transaction hash.
+7. Record or update the demo video so it shows the Testnet proof.
+8. Run `npm run readiness`; it should move from `needs_more_evidence` to `ready_to_submit_after_user_approval` after the Testnet fields are filled.
+
+## Casper CLI Shape
+
+The exact command depends on the final build toolchain and chosen node URL. The official Casper docs currently describe:
+
+- installing a contract with a compiled Wasm, Casper CLI client, Casper account key pair, and faucet-funded Testnet account
+- calling a contract by hash with an entry point and session arguments
+
+Do not paste a real secret key path, private key, seed phrase, or wallet file into GitHub issues, chat, README, or DoraHacks text fields.
 
 ## References
 
 - Casper smart contract calling docs: https://docs.casper.network/developers/cli/calling-contracts
+- Casper installing contracts docs: https://docs.casper.network/developers/cli/installing-contracts
 - Casper JavaScript/TypeScript SDK docs: https://docs.casper.network/developers/dapps/sdk/script-sdk
 - Odra tutorials: https://developer.casper.network/odra-tutorials
+- Odra Casper backend docs: https://odra.dev/docs/backends/casper/
 - Casper AI Toolkit: https://www.casper.network/ai

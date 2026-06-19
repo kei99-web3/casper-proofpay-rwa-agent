@@ -33,3 +33,5 @@ The following actions require the submitter to use their own accounts and review
 7. Submit the DoraHacks form.
 
 The repository is designed so those actions can be performed without exposing raw revenue data or private keys in source control.
+
+For a Japanese, non-engineer-friendly version of the remaining Testnet action, see `docs/USER_TESTNET_ACTION_GUIDE_JA.md`.

@@ -2,6 +2,7 @@
 
 const { runProofPayScenario } = require("./proofpay-agent");
 const { createMcpTools } = require("./mcp-tools");
+const { createSubmissionPayload } = require("./submission-payload");
 
 function main() {
   const scenario = runProofPayScenario();
@@ -10,6 +11,8 @@ function main() {
     casperTransactionPlan: scenario.casperTransactionPlan
   });
   console.log(JSON.stringify({ ...scenario, mcp }, null, 2));
+  console.log("\nSubmission payload:");
+  console.log(JSON.stringify(createSubmissionPayload(), null, 2));
 }
 
 if (require.main === module) {
