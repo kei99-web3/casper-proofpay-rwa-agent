@@ -20,6 +20,10 @@ Purpose: public candidate repository for the Casper Agentic Buildathon 2026.
 - x402-shaped payment flow mock
 - Odra-style Casper proof receipt registry scaffold
 - judging and submission docs
+- deterministic submission payload generator
+- final readiness checker
+- Japanese user Testnet action guide
+- final submission checklist
 
 ## Excluded
 
@@ -37,6 +41,10 @@ Run:
 ```bash
 npm test
 npm run demo
+npm run payload
+npm run readiness
 ```
 
-Status: local candidate ready for review; Testnet deploy and final DoraHacks submission still require user-controlled account actions.
+`npm run readiness` is expected to return `needs_more_evidence` until the Casper Testnet contract/package hash and `record_proof_receipt` transaction hash are filled.
+
+Status: public repo/demo/payload ready; Testnet deploy and final DoraHacks submission still require user-controlled account actions.
