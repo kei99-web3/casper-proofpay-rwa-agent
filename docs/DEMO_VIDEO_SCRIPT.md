@@ -6,11 +6,11 @@ Target: 75-90 seconds.
 
 Show title:
 
-> Casper ProofPay RWA Agent: agents buy verified revenue facts, not raw spreadsheets.
+> Casper ProofPay: AI agents buy verified revenue proofs before making financial decisions.
 
 Say:
 
-> This is an agentic RWA proof service for Casper. A buyer agent pays for a proof, the proof agent validates revenue records, and Casper stores the receipt.
+> This is a revenue proof market for Casper. A lending or risk agent pays for a proof, the proof agent validates revenue records, and Casper stores the receipt.
 
 ## 10-25s
 
@@ -55,7 +55,7 @@ Show MCP tool output:
 
 Say:
 
-> Other agents can verify the paid proof and decide whether to trust this revenue fact.
+> Other agents can verify the paid proof before making lending, underwriting, treasury, or risk decisions.
 
 ## 80-90s
 

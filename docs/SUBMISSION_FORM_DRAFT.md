@@ -2,17 +2,17 @@
 
 ## Project Name
 
-Casper ProofPay RWA Agent
+Casper ProofPay: Revenue Proof Market for AI Agents
 
 ## Short Description
 
-An agentic RWA proof service where AI agents buy verified revenue facts through an x402-shaped payment flow, verify receipts through MCP-style tools, and anchor proof receipts on Casper Testnet.
+An agentic revenue proof market where AI lending, underwriting, treasury, and risk agents buy verified RWA revenue proofs before making financial decisions, verify receipts through MCP-style tools, and anchor proof receipts on Casper Testnet.
 
 ## Longer Description
 
-Casper ProofPay RWA Agent turns synthetic real-world revenue records into paid, verifiable facts for other agents. A buyer agent receives an HTTP 402-style payment challenge, submits a payment proof, and receives a deterministic proof receipt. The receipt includes a proof root, payment hash, quality score, and agent id. The planned Casper Testnet contract records these receipt fields through a transaction-producing `record_proof_receipt` entry point.
+Casper ProofPay turns synthetic real-world revenue records into paid, verifiable facts for other agents. A lending or risk agent receives an HTTP 402-style payment challenge, submits a payment proof, and receives a deterministic proof receipt before trusting a revenue stream. The receipt includes a proof root, payment hash, quality score, and agent id. The planned Casper Testnet contract records these receipt fields through a transaction-producing `record_proof_receipt` entry point.
 
-MCP-style tools let downstream agents verify the proof and inspect the issuer reputation. The demo uses synthetic data only; production adapters can connect accounting, payment processor, IoT, TEE, or oracle attestations.
+MCP-style tools let downstream agents verify the proof and inspect the issuer reputation. The demo uses synthetic data only; production adapters can connect accounting, payment processor, IoT, TEE, or oracle attestations. The core use case is pre-decision revenue evidence for autonomous finance agents.
 
 ## Tech Stack
 

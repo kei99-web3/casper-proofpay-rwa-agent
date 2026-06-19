@@ -79,8 +79,8 @@ function runProofPayScenario({ batch = DEFAULT_REVENUE_BATCH } = {}) {
   const receipt = createProofReceipt({ batch, paymentProof });
   const casperTransactionPlan = createCasperTransactionPlan(receipt);
   return {
-    title: "Casper ProofPay RWA Agent",
-    summary: "Buy verified RWA revenue facts through x402, verify with MCP, anchor receipts on Casper.",
+    title: "Casper ProofPay: Revenue Proof Market for AI Agents",
+    summary: "AI finance agents buy verified RWA revenue proofs through x402, verify with MCP, and anchor receipts on Casper.",
     challenge,
     paymentProof,
     receipt,

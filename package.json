@@ -1,7 +1,7 @@
 {
   "name": "casper-proofpay-rwa-agent",
   "version": "0.1.0",
-  "description": "Agentic RWA proof service with x402-shaped payments, MCP-style verification, and Casper Testnet receipt design.",
+  "description": "Revenue proof market where AI finance agents buy verified RWA proofs through x402, MCP, and Casper receipts.",
   "main": "src/index.js",
   "scripts": {
     "demo": "node src/index.js",

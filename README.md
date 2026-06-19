@@ -1,8 +1,8 @@
-# Casper ProofPay RWA Agent
+# Casper ProofPay: Revenue Proof Market for AI Agents
 
-Casper ProofPay RWA Agent is an agentic proof service for the Casper Agentic Buildathon 2026.
+Casper ProofPay is an agentic revenue proof market for the Casper Agentic Buildathon 2026.
 
-It lets an AI buyer agent purchase a verified real-world-asset revenue proof through an x402-shaped payment flow, verify the result through MCP-style tools, and anchor the proof receipt to a Casper Testnet contract.
+It lets AI lending, underwriting, treasury, and risk agents buy verified real-world-asset revenue proofs before making financial decisions. Each proof is purchased through an x402-shaped payment flow, verified through MCP-style tools, and anchored as a receipt on Casper Testnet.
 
 Current status: local deterministic prototype and Casper Testnet receipt design. The repository contains no wallet, private key, faucet token, API key, customer data, or live transaction.
 
@@ -18,15 +18,15 @@ The Casper Agentic Buildathon asks builders to create production-ready Agentic A
 
 This project targets that brief directly:
 
-- **Agentic AI:** a proof agent validates revenue data, issues receipts, and exposes tools for other agents.
+- **Agentic AI:** financial agents buy proof before they act, while a proof agent validates revenue data, issues receipts, and exposes tools for downstream agents.
 - **x402:** proof access is modeled as pay-per-request, using an HTTP 402-style challenge and payment proof.
 - **MCP:** verification and reputation lookup are exposed as MCP-style tool responses.
-- **RWA:** synthetic revenue facts stand in for future accounting, payment, IoT, or attestation adapters.
+- **RWA:** synthetic revenue proofs stand in for future accounting, payment, IoT, or attestation adapters.
 - **Casper Testnet:** the planned on-chain component records proof root, payment hash, receipt hash, quality score, and agent id.
 
 ## What the Demo Shows
 
-1. A buyer agent asks for a revenue proof.
+1. A lending or risk agent asks for a revenue proof before trusting a revenue stream.
 2. The proof service returns a 402 payment challenge.
 3. The buyer submits a mock x402 payment proof.
 4. The RWA Proof Agent validates a synthetic revenue batch.
@@ -77,7 +77,7 @@ The local prototype produces the exact payload shape to pass into that entry poi
 
 ## Synthetic Data Boundary
 
-The included revenue batch is synthetic. The goal is not to claim ownership of real assets. The goal is to prove the agentic architecture:
+The included revenue batch is synthetic. The goal is not to claim ownership of real assets. The goal is to prove the agentic market architecture:
 
 - paid proof request
 - deterministic validation
