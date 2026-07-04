@@ -36,13 +36,12 @@ contract/wasm/ProofReceiptRegistry.wasm
 sha256: 1a9add6be7dfc1dd2023c1c752fbc252890db22c0415adb137fd9e3c8a19bbcf
 ```
 
-A real Casper Testnet deploy still requires:
+Casper Testnet deploy evidence:
 
-1. Casper Testnet account controlled by the submitter.
-2. Faucet funds.
-3. Rust/Casper/Odra build toolchain.
-4. Signed deploy.
-5. One `record_proof_receipt` transaction hash captured in the submission README and demo video.
+1. Contract package hash: `b1ba96bf374ab52f3f6560a5e88ce4fe56324eb7846c5751f7f2c4ca90e499f2`
+2. Contract hash: `f56cf425f3a10ed7f3e9e2622b64ca2f2a0609c9446b1cb79ea2b58167293c61`
+3. Contract deploy hash: `930222bfc49b84b775e9c5b008651432e7614025624df410aac993efcafd4d3d`
+4. `record_proof_receipt` deploy hash: `2da236ad980f1a82943fe5485d36fdaa6c3c1cdd8b38dd42808aaaf1b25b3994`
 
 ## Build Skeleton
 

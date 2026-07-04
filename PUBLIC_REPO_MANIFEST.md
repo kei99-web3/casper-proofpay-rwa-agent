@@ -6,7 +6,7 @@ URL: https://github.com/kei99-web3/casper-proofpay-rwa-agent
 
 Demo URL: https://kei99-web3.github.io/casper-proofpay-rwa-agent/
 
-Draft video URL: https://github.com/kei99-web3/casper-proofpay-rwa-agent/raw/main/media/casper-proofpay-demo-draft.mp4
+Final video URL: https://github.com/kei99-web3/casper-proofpay-rwa-agent/raw/main/media/casper-proofpay-demo-final.mp4
 
 Purpose: public candidate repository for the Casper Agentic Buildathon 2026.
 
@@ -15,7 +15,7 @@ Purpose: public candidate repository for the Casper Agentic Buildathon 2026.
 - dependency-free Node.js proof engine
 - tests
 - static demo
-- short draft demo video
+- final demo video with Casper Testnet evidence
 - MCP-style tool schemas
 - x402-shaped payment flow mock
 - buildable Odra Casper proof receipt registry with `Cargo.toml`, `Odra.toml`, `Cargo.lock`, `rust-toolchain`, build bins, and `src/proof_receipt_registry.rs`
@@ -48,7 +48,7 @@ npm run casper:commands
 npm run readiness
 ```
 
-`npm run readiness` is expected to return `needs_more_evidence` until the Casper Testnet contract/package hash and `record_proof_receipt` transaction hash are filled.
+`npm run readiness` returns `ready_to_submit_after_user_approval` after the Casper Testnet contract/package hash and `record_proof_receipt` transaction hash were filled.
 
 Wasm build verified in WSL:
 
@@ -57,4 +57,4 @@ contract/wasm/ProofReceiptRegistry.wasm
 sha256: 1a9add6be7dfc1dd2023c1c752fbc252890db22c0415adb137fd9e3c8a19bbcf
 ```
 
-Status: public repo/demo/payload/Wasm ready; Testnet deploy and final DoraHacks submission still require user-controlled account actions.
+Status: public repo/demo/payload/Wasm/Testnet evidence ready; final DoraHacks submission still requires the submitter account and terms flow.

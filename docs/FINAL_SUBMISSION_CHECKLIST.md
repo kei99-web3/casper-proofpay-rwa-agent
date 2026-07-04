@@ -11,26 +11,26 @@ Use this checklist before pressing the DoraHacks submit button.
 - [x] `npm test` passes.
 - [x] `npm run payload` prints deterministic `record_proof_receipt` args.
 - [x] `cargo odra build` produces `contract/wasm/ProofReceiptRegistry.wasm`.
-- [ ] Final demo video includes real Casper Testnet evidence.
+- [x] Final demo video includes real Casper Testnet evidence.
 
 ## Casper Testnet Evidence
 
 - [x] Casper Testnet account was funded by faucet.
-- [ ] `ProofReceiptRegistry` or equivalent receipt contract was deployed.
-- [ ] Contract/package hash is recorded.
-- [ ] `record_proof_receipt` or equivalent transaction was submitted.
-- [ ] Transaction/deploy hash is recorded.
-- [ ] Explorer URL opens publicly.
-- [ ] README and `docs/SUBMISSION_FORM_DRAFT.md` include the Testnet evidence.
+- [x] `ProofReceiptRegistry` or equivalent receipt contract was deployed.
+- [x] Contract/package hash is recorded.
+- [x] `record_proof_receipt` or equivalent transaction was submitted.
+- [x] Transaction/deploy hash is recorded.
+- [x] Explorer URL opens publicly.
+- [x] README and `docs/SUBMISSION_FORM_DRAFT.md` include the Testnet evidence.
 
 ## DoraHacks Form
 
 - [ ] Project name: `Casper ProofPay: Revenue Proof Market for AI Agents`.
 - [ ] Repository URL: `https://github.com/kei99-web3/casper-proofpay-rwa-agent`.
 - [ ] Hosted demo URL: `https://kei99-web3.github.io/casper-proofpay-rwa-agent/`.
-- [ ] Demo video URL is final and public.
-- [ ] Casper Testnet contract/package hash is included.
-- [ ] `record_proof_receipt` transaction/deploy hash is included.
+- [x] Demo video URL is final and public.
+- [x] Casper Testnet contract/package hash is included.
+- [x] `record_proof_receipt` transaction/deploy hash is included.
 - [ ] Terms and eligibility are reviewed by the submitter.
 
 ## Do Not Submit If

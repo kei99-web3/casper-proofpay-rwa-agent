@@ -2,17 +2,25 @@
 
 Casper ProofPay is an agentic revenue proof market for the Casper Agentic Buildathon 2026.
 
-It lets AI lending, underwriting, treasury, and risk agents buy verified real-world-asset revenue proofs before making financial decisions. Each proof is purchased through an x402-shaped payment flow, verified through MCP-style tools, and designed to be anchored as a receipt on Casper Testnet after the final user-controlled deploy.
+It lets AI lending, underwriting, treasury, and risk agents buy verified real-world-asset revenue proofs before making financial decisions. Each proof is purchased through an x402-shaped payment flow, verified through MCP-style tools, and anchored as a receipt on Casper Testnet.
 
-Current status: local deterministic prototype and Casper Testnet receipt design. The repository contains no wallet, private key, faucet token, API key, customer data, or live transaction.
+Current status: local deterministic prototype plus verified Casper Testnet receipt evidence. The repository contains no wallet, private key, faucet token, API key, or customer data.
 
-Build status: the Odra contract builds locally to `contract/wasm/ProofReceiptRegistry.wasm`. The checked WSL build output sha256 is `1a9add6be7dfc1dd2023c1c752fbc252890db22c0415adb137fd9e3c8a19bbcf`. A live Casper Testnet deploy and `record_proof_receipt` call still require user-controlled signing.
+Build status: the Odra contract builds locally to `contract/wasm/ProofReceiptRegistry.wasm`. The checked WSL build output sha256 is `1a9add6be7dfc1dd2023c1c752fbc252890db22c0415adb137fd9e3c8a19bbcf`.
+
+Casper Testnet evidence:
+
+- Contract package hash: `b1ba96bf374ab52f3f6560a5e88ce4fe56324eb7846c5751f7f2c4ca90e499f2`
+- Contract hash: `f56cf425f3a10ed7f3e9e2622b64ca2f2a0609c9446b1cb79ea2b58167293c61`
+- Contract deploy hash: `930222bfc49b84b775e9c5b008651432e7614025624df410aac993efcafd4d3d`
+- `record_proof_receipt` deploy hash: `2da236ad980f1a82943fe5485d36fdaa6c3c1cdd8b38dd42808aaaf1b25b3994`
+- Explorer: https://testnet.cspr.live/deploy/2da236ad980f1a82943fe5485d36fdaa6c3c1cdd8b38dd42808aaaf1b25b3994
 
 Public repository: https://github.com/kei99-web3/casper-proofpay-rwa-agent
 
 Demo page: https://kei99-web3.github.io/casper-proofpay-rwa-agent/
 
-Draft demo video: https://github.com/kei99-web3/casper-proofpay-rwa-agent/raw/main/media/casper-proofpay-demo-draft.mp4
+Final demo video: https://github.com/kei99-web3/casper-proofpay-rwa-agent/raw/main/media/casper-proofpay-demo-final.mp4
 
 ## Why This Fits Casper
 
@@ -24,7 +32,7 @@ This project targets that brief directly:
 - **x402:** proof access is modeled as pay-per-request, using an HTTP 402-style challenge and payment proof.
 - **MCP:** verification and reputation lookup are exposed as MCP-style tool responses.
 - **RWA:** synthetic revenue proofs stand in for future accounting, payment, IoT, or attestation adapters.
-- **Casper Testnet:** the planned on-chain component records proof root, payment hash, receipt hash, quality score, and agent id.
+- **Casper Testnet:** the on-chain component records proof root, payment hash, receipt hash, quality score, and agent id.
 
 ## What the Demo Shows
 
@@ -46,9 +54,7 @@ npm run payload
 
 Open `demo/index.html` in a browser or use the GitHub Pages demo URL to view the judge-facing walkthrough.
 
-`npm run payload` prints the exact deterministic `record_proof_receipt` argument set that should be used for the Casper Testnet receipt transaction. `npm run readiness` checks which final submission fields are still missing; it is expected to report `needs_more_evidence` until the Testnet contract hash and transaction hash are filled.
-
-The current MP4 is a short draft walkthrough. Before final DoraHacks submission, replace it or supplement it with a recorded Testnet transaction walkthrough after the Casper deploy is complete.
+`npm run payload` prints the exact deterministic `record_proof_receipt` argument set used for the Casper Testnet receipt transaction. `npm run readiness` checks that the final submission fields are filled.
 
 ## Project Structure
 
@@ -91,7 +97,7 @@ The contract concept is a `ProofReceiptRegistry` with a transaction-producing en
 record_proof_receipt(proof_id, proof_root, payment_hash, receipt_hash, quality_score, agent_id)
 ```
 
-The local prototype produces the exact payload shape to pass into that entry point. A real Testnet deploy requires a Casper Testnet account, faucet funds, build toolchain, and a signed deploy. Those artifacts are intentionally excluded from this repository.
+The local prototype produces the exact payload shape passed into that entry point. The Testnet deploy and receipt transaction were signed from a separate funded Testnet key environment; private key material is intentionally excluded from this repository.
 
 ## Synthetic Data Boundary
 
