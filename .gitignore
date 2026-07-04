@@ -13,3 +13,7 @@ keys/
 private/
 .DS_Store
 media/_final_video_build/
+media/_v2_build/
+media/_winning_video_build/
+__pycache__/
+*.pyc
