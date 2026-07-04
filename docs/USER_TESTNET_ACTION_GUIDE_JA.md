@@ -85,6 +85,8 @@ npm run payload
 npm run casper:commands
 ```
 
+Casper公式docsには、installについて `put-deploy --session-path` 型と `put-transaction session --transaction-path` 型の両方が出ています。このscriptは両方の非secretテンプレートを出します。あなたのPCに入った `casper-client` で片方が通らない場合は、秘密鍵の中身ではなくエラー全文だけCodexへ送ってください。
+
 次に、Rust/Cargo/Odraが使える環境でWasmを作ります。
 
 ```bash
@@ -139,8 +141,9 @@ Testnet hash未入力の間は `needs_more_evidence` が出ます。これは正
 
 ## 公式docs確認日
 
-2026-06-19 JSTに以下を確認しました。
+2026-07-04 JSTに以下を再確認しました。
 
+- Casper quickstart docs: https://docs.casper.network/resources/quick-start
 - Casper installing contracts docs: https://docs.casper.network/developers/cli/installing-contracts
 - Casper calling contracts docs: https://docs.casper.network/developers/cli/calling-contracts
 - Odra Casper backend docs: https://odra.dev/docs/backends/casper/

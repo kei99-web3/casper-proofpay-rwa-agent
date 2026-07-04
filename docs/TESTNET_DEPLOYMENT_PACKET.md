@@ -84,8 +84,11 @@ Codex could not verify this locally because Rust/Cargo is not installed in the A
 
 The exact command depends on the final build toolchain and chosen node URL. The official Casper docs currently describe:
 
-- installing a contract with a compiled Wasm, Casper CLI client, Casper account key pair, faucet-funded Testnet account, and `put-deploy`
-- calling a contract by hash with an entry point and session arguments
+- Quickstart-style install with compiled Wasm, Casper CLI client, Casper account key pair, faucet-funded Testnet account, and `casper-client put-deploy --session-path`.
+- Casper 2.0 Installing Contracts docs also show `casper-client put-transaction session` with `--transaction-path`, fixed pricing, and `install-upgrade`.
+- Calling a stored contract by hash/package/name uses `put-deploy` with an entry point and optional session arguments.
+
+`npm run casper:commands` prints both install shapes as non-secret templates. If one command is rejected by the installed client version, use the other official shape and share the exact error text.
 
 Do not paste a real secret key path, private key, seed phrase, or wallet file into GitHub issues, chat, README, or DoraHacks text fields.
 
