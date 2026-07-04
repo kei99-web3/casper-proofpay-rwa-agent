@@ -22,6 +22,8 @@ Demo page: https://kei99-web3.github.io/casper-proofpay-rwa-agent/
 
 Final demo video: https://github.com/kei99-web3/casper-proofpay-rwa-agent/raw/main/media/casper-proofpay-demo-final.mp4
 
+Audio credits for the final demo video are documented in `media/audio/THIRD_PARTY_AUDIO.md`.
+
 ## Why This Fits Casper
 
 The Casper Agentic Buildathon asks builders to create production-ready Agentic AI applications around Casper, especially DeFi and RWA, with a transaction-producing Casper Testnet component, open-source GitHub repository, and demo video.

@@ -13,11 +13,14 @@ from PIL import Image, ImageDraw, ImageFont, ImageOps
 ROOT = Path(__file__).resolve().parents[1]
 MEDIA = ROOT / "media"
 ASSETS = MEDIA / "winning_demo_assets"
+AUDIO = MEDIA / "audio"
 CAPTURE = MEDIA / "_v2_build"
 BUILD = MEDIA / "_winning_video_build"
 FINAL = MEDIA / "casper-proofpay-demo-final.mp4"
 V2 = MEDIA / "casper-proofpay-demo-final-v2.mp4"
 CONTACT_SHEET = MEDIA / "casper-proofpay-demo-final-v2-contact-sheet.jpg"
+BGM = AUDIO / "mixkit-hazy-after-hours-132.mp3"
+POP_SFX = AUDIO / "mixkit-message-pop-alert-2354.mp3"
 
 FPS = 30
 W = 1920
@@ -496,6 +499,13 @@ def render_video(data: dict) -> None:
     BUILD.mkdir(parents=True)
 
     scenes = make_scene_functions(data, images)
+    transition_times: list[float] = []
+    elapsed = 0.0
+    for index, (_, duration, _) in enumerate(scenes):
+        if index:
+            transition_times.append(elapsed)
+        elapsed += duration
+
     frame_index = 0
     representative: list[tuple[str, Path]] = []
     for scene_name, duration, renderer in scenes:
@@ -509,8 +519,9 @@ def render_video(data: dict) -> None:
             if i == total // 2:
                 representative.append((scene_name, frame_path))
             frame_index += 1
+    video_duration = frame_index / FPS
 
-    tmp = BUILD / "casper-proofpay-demo-final-v2.tmp.mp4"
+    tmp = BUILD / "casper-proofpay-demo-final-v2.video-only.tmp.mp4"
     subprocess.run(
         [
             FFMPEG,
@@ -531,9 +542,78 @@ def render_video(data: dict) -> None:
         ],
         check=True,
     )
-    shutil.copy2(tmp, V2)
-    shutil.copy2(tmp, FINAL)
+    mux_audio(tmp, V2, video_duration, transition_times)
+    shutil.copy2(V2, FINAL)
     build_contact_sheet(representative)
+
+
+def audio_filter(duration: float, transition_times: list[float]) -> str:
+    if not transition_times:
+        raise ValueError("transition_times must not be empty")
+    fade_out_start = max(0.0, duration - 2.5)
+    parts = [
+        (
+            f"[1:a]aformat=sample_fmts=fltp:channel_layouts=stereo,"
+            f"atrim=0:{duration:.3f},asetpts=PTS-STARTPTS,volume=0.15,"
+            f"afade=t=in:st=0:d=0.8,afade=t=out:st={fade_out_start:.3f}:d=2.5[bgm]"
+        )
+    ]
+    split_labels = "".join(f"[s{i}]" for i in range(len(transition_times)))
+    parts.append(
+        f"[2:a]aformat=sample_fmts=fltp:channel_layouts=stereo,asplit={len(transition_times)}{split_labels}"
+    )
+    for index, seconds in enumerate(transition_times):
+        delay_ms = int(round(seconds * 1000))
+        parts.append(
+            f"[s{index}]atrim=0:1.05,asetpts=PTS-STARTPTS,volume=0.52,"
+            f"adelay={delay_ms}|{delay_ms}[p{index}]"
+        )
+    inputs = "[bgm]" + "".join(f"[p{i}]" for i in range(len(transition_times)))
+    parts.append(
+        f"{inputs}amix=inputs={len(transition_times) + 1}:duration=first:normalize=0,"
+        "alimiter=limit=0.92[aout]"
+    )
+    return ";".join(parts)
+
+
+def mux_audio(video_only: Path, output: Path, duration: float, transition_times: list[float]) -> None:
+    missing = [path for path in (BGM, POP_SFX) if not path.exists()]
+    if missing:
+        raise FileNotFoundError(
+            "Missing third-party audio assets: "
+            + ", ".join(str(path.relative_to(ROOT)) for path in missing)
+        )
+    subprocess.run(
+        [
+            FFMPEG,
+            "-y",
+            "-i",
+            str(video_only),
+            "-stream_loop",
+            "-1",
+            "-i",
+            str(BGM),
+            "-i",
+            str(POP_SFX),
+            "-filter_complex",
+            audio_filter(duration, transition_times),
+            "-map",
+            "0:v:0",
+            "-map",
+            "[aout]",
+            "-c:v",
+            "copy",
+            "-c:a",
+            "aac",
+            "-b:a",
+            "160k",
+            "-shortest",
+            "-movflags",
+            "+faststart",
+            str(output),
+        ],
+        check=True,
+    )
 
 
 def build_contact_sheet(frames: list[tuple[str, Path]]) -> None:

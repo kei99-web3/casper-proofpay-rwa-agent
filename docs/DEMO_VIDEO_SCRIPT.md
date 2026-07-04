@@ -1,8 +1,8 @@
 # Demo Video Script
 
-Status: final v2 rendered.
+Status: final v2 rendered with licensed BGM and transition SFX.
 
-Target: 105 seconds, 1920x1080, 30fps, silent/mute-safe.
+Target: 105 seconds, 1920x1080, 30fps, audio-enhanced and mute-safe.
 
 Final file:
 
@@ -14,6 +14,12 @@ Build script:
 ```bash
 python scripts/build-final-demo-video.py
 ```
+
+Audio assets:
+
+- BGM: Mixkit `Hazy After Hours` by Alejandro Magana (A. M.).
+- Scene transition SFX: Mixkit `Message pop alert`.
+- Credit and license notes: `media/audio/THIRD_PARTY_AUDIO.md`.
 
 ## Creative Strategy
 
@@ -32,6 +38,8 @@ Then show the proof path as a verification thread:
 7. public repo and hosted demo.
 
 The video is intentionally not a slide deck. It uses actual local command output, public CSPR.live evidence, the hosted demo page, and the public GitHub repository.
+
+The audio is intentionally subtle: the BGM gives the demo a polished bounty-video feel, while a short pop sound marks each major page/scene transition without covering the proof details.
 
 ## Scene Timeline
 
@@ -188,9 +196,10 @@ x402 flow is protocol-shaped mock. Casper Testnet receipt is real.
 
 ## Acceptance Checks
 
-- `ffprobe` confirms 105 seconds, 1920x1080, 30fps.
+- `ffprobe` confirms 105 seconds, 1920x1080, 30fps, H.264 video plus AAC audio.
 - First 10 seconds include the underwriting question, local proof output, and Casper Testnet receipt mention.
 - x402, synthetic data, and MCP are labeled honestly.
 - Casper Testnet evidence shows `record_proof_receipt` and `Status: Success`.
+- BGM and transition SFX are third-party Mixkit assets, not generated audio.
 - The final URL remains stable for submission:
   `https://github.com/kei99-web3/casper-proofpay-rwa-agent/raw/main/media/casper-proofpay-demo-final.mp4`
