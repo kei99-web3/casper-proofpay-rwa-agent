@@ -5,7 +5,7 @@
 - Run `npm test`
 - Run `npm run demo`
 - Open `demo/index.html`
-- Review `contract/proof_receipt_registry.rs`
+- Review `contract/src/proof_receipt_registry.rs`
 
 ## Not Included
 

@@ -18,9 +18,10 @@ Purpose: public candidate repository for the Casper Agentic Buildathon 2026.
 - short draft demo video
 - MCP-style tool schemas
 - x402-shaped payment flow mock
-- Odra-style Casper proof receipt registry scaffold
+- Odra-style Casper proof receipt registry skeleton with `Cargo.toml`, `Odra.toml`, and `src/proof_receipt_registry.rs`
 - judging and submission docs
 - deterministic submission payload generator
+- non-secret Casper CLI command template generator
 - final readiness checker
 - Japanese user Testnet action guide
 - final submission checklist

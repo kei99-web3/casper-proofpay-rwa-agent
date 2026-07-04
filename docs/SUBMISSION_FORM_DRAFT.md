@@ -6,7 +6,7 @@ Casper ProofPay: Revenue Proof Market for AI Agents
 
 ## Short Description
 
-An agentic revenue proof market where AI lending, underwriting, treasury, and risk agents buy verified RWA revenue proofs before making financial decisions, verify receipts through MCP-style tools, and anchor proof receipts on Casper Testnet.
+An agentic revenue proof market where AI lending, underwriting, treasury, and risk agents buy verified RWA revenue proofs before making financial decisions, verify receipts through MCP-style tools, and are designed to anchor proof receipts on Casper Testnet after the final user-controlled deploy.
 
 ## Longer Description
 

@@ -1,0 +1,25 @@
+[package]
+name = "casper_proofpay_contract"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+name = "casper_proofpay_contract"
+path = "src/lib.rs"
+
+[dependencies]
+odra = "2.8.0"
+
+[dev-dependencies]
+odra-test = "2.8.0"
+
+[build-dependencies]
+odra-build = "2.8.0"
+
+[profile.release]
+codegen-units = 1
+lto = true
+
+[profile.dev.package."*"]
+opt-level = 3

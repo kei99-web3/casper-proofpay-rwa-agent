@@ -1,7 +1,7 @@
-//! Odra-style Casper proof receipt registry scaffold.
+//! Odra-style Casper proof receipt registry.
 //!
-//! This file documents the intended transaction-producing on-chain component.
-//! It is intentionally kept free of keys, accounts, and deploy configuration.
+//! This is the intended transaction-producing on-chain component. It contains
+//! no keys, accounts, deploy configuration, or live credentials.
 
 use odra::prelude::*;
 use odra::{Mapping, Var};

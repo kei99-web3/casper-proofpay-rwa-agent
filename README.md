@@ -2,7 +2,7 @@
 
 Casper ProofPay is an agentic revenue proof market for the Casper Agentic Buildathon 2026.
 
-It lets AI lending, underwriting, treasury, and risk agents buy verified real-world-asset revenue proofs before making financial decisions. Each proof is purchased through an x402-shaped payment flow, verified through MCP-style tools, and anchored as a receipt on Casper Testnet.
+It lets AI lending, underwriting, treasury, and risk agents buy verified real-world-asset revenue proofs before making financial decisions. Each proof is purchased through an x402-shaped payment flow, verified through MCP-style tools, and designed to be anchored as a receipt on Casper Testnet after the final user-controlled deploy.
 
 Current status: local deterministic prototype and Casper Testnet receipt design. The repository contains no wallet, private key, faucet token, API key, customer data, or live transaction.
 
@@ -60,8 +60,11 @@ src/
 scripts/
   generate-submission-payload.js
   check-readiness.js
+  print-casper-client-template.js
 contract/
-  proof_receipt_registry.rs  Odra-style Casper contract scaffold
+  Cargo.toml                  Minimal Odra contract manifest
+  Odra.toml                   ProofReceiptRegistry build target
+  src/proof_receipt_registry.rs
   README.md                  Testnet deployment plan
 demo/
   index.html               Static judge demo

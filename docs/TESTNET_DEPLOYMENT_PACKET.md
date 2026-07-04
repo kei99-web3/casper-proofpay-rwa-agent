@@ -1,6 +1,6 @@
 # Testnet Deployment Packet
 
-This project is ready for a user-controlled Casper Testnet proof step.
+This project is prepared for a user-controlled Casper Testnet proof step. The local repository now includes an Odra project skeleton, but the final build, wallet, faucet, deploy, and transaction signing must happen in the submitter's own environment.
 
 Codex/automation should not take custody of private keys, seed phrases, or wallet files. The submitter should run the wallet/faucet/signing steps in their own environment and paste only public artifacts back into the submission draft.
 
@@ -15,14 +15,22 @@ Codex/automation should not take custody of private keys, seed phrases, or walle
 
 1. Create or select a Casper Testnet account.
 2. Request faucet funds.
-3. Build/deploy `contract/proof_receipt_registry.rs` or an equivalent Odra/Casper contract.
+3. Build/deploy the Odra contract project under `contract/`.
 4. Generate the local proof payload:
 
 ```bash
 npm run payload
 ```
 
-5. Call `record_proof_receipt` with the generated `proofReceiptArgs`:
+5. Generate a non-secret command template:
+
+```bash
+npm run casper:commands
+```
+
+This prints placeholder commands. Do not paste private keys or seed phrases anywhere.
+
+6. Call `record_proof_receipt` with the generated `proofReceiptArgs`:
 
 ```json
 {
@@ -35,9 +43,32 @@ npm run payload
 }
 ```
 
-6. Update `docs/SUBMISSION_FORM_DRAFT.md` with the contract address/hash and transaction hash.
-7. Record or update the demo video so it shows the Testnet proof.
-8. Run `npm run readiness`; it should move from `needs_more_evidence` to `ready_to_submit_after_user_approval` after the Testnet fields are filled.
+7. Update `docs/SUBMISSION_FORM_DRAFT.md` with the contract address/hash and transaction hash.
+8. Record or update the demo video so it shows the Testnet proof.
+9. Run `npm run readiness`; it should move from `needs_more_evidence` to `ready_to_submit_after_user_approval` after the Testnet fields are filled.
+
+## Local Build Shape
+
+The Odra docs currently describe `cargo odra build` as the build command that generates wasm files into a `wasm` folder. The minimal contract project has this shape:
+
+```text
+contract/
+  Cargo.toml
+  Odra.toml
+  src/
+    lib.rs
+    proof_receipt_registry.rs
+```
+
+Build command:
+
+```bash
+cd contract
+cargo install cargo-odra
+cargo odra build
+```
+
+Codex could not verify this locally because Rust/Cargo is not installed in the AI_Workspace execution environment. Verify it on the machine that will run the user-controlled deploy.
 
 ## Casper CLI Shape
 

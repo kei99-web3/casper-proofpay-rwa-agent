@@ -27,10 +27,41 @@ record_proof_receipt(proof_id, proof_root, payment_hash, receipt_hash, quality_s
 
 ## Current State
 
-`proof_receipt_registry.rs` is an Odra-style scaffold. The repository can be reviewed locally without a wallet. A real Casper Testnet deploy requires:
+The canonical contract source is `src/proof_receipt_registry.rs`. The repository can be reviewed locally without a wallet. A real Casper Testnet deploy requires:
 
 1. Casper Testnet account controlled by the submitter.
 2. Faucet funds.
 3. Rust/Casper/Odra build toolchain.
 4. Signed deploy.
 5. One `record_proof_receipt` transaction hash captured in the submission README and demo video.
+
+## Build Skeleton
+
+```text
+contract/
+  Cargo.toml
+  Odra.toml
+  src/
+    lib.rs
+    proof_receipt_registry.rs
+```
+
+Build command:
+
+```bash
+cd contract
+cargo install cargo-odra
+cargo odra build
+```
+
+The current Codex environment does not have `cargo` installed, so the Rust/Odra build must be verified in the submitter's local environment before Testnet deploy.
+
+## Command Template
+
+From the repository root:
+
+```bash
+npm run casper:commands
+```
+
+This prints a non-secret template for the install and `record_proof_receipt` call. Replace placeholders locally and never paste private key contents into chat, GitHub, or DoraHacks.

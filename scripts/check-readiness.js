@@ -19,7 +19,7 @@ const checks = [
   {
     id: "contract-scaffold",
     label: "Casper receipt registry scaffold exists",
-    ok: () => fs.existsSync(path.join(root, "contract", "proof_receipt_registry.rs"))
+    ok: () => fs.existsSync(path.join(root, "contract", "src", "proof_receipt_registry.rs"))
   },
   {
     id: "submission-payload",

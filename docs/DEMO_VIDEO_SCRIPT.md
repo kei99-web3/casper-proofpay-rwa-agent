@@ -2,7 +2,23 @@
 
 Target: 75-90 seconds.
 
-## 0-10s
+## 0-15s
+
+Show Casper Testnet Explorer first.
+
+Required shot for final submission:
+
+- contract/package hash
+- `record_proof_receipt` transaction/deploy hash
+- visible success/executed status
+
+Say:
+
+> This is the Casper Testnet receipt produced by ProofPay. The rest of the demo shows the agent flow that generated this proof payload.
+
+If the Testnet transaction is not complete yet, do not record the final version. Use the current draft video only as a temporary walkthrough.
+
+## 15-25s
 
 Show title:
 
@@ -12,7 +28,7 @@ Say:
 
 > This is a revenue proof market for Casper. A lending or risk agent pays for a proof, the proof agent validates revenue records, and Casper stores the receipt.
 
-## 10-25s
+## 25-40s
 
 Run:
 
@@ -27,7 +43,7 @@ Point to:
 - mock payment proof
 - deterministic proof root
 
-## 25-45s
+## 40-55s
 
 Open `demo/index.html`.
 
@@ -38,15 +54,15 @@ Show:
 - payment hash
 - Casper transaction plan
 
-## 45-65s
+## 55-70s
 
-Show `contract/proof_receipt_registry.rs`.
+Show `contract/src/proof_receipt_registry.rs`.
 
 Say:
 
 > The transaction-producing component is `record_proof_receipt`, which records proof id, proof root, payment hash, receipt hash, quality score, and agent id on Casper Testnet.
 
-## 65-80s
+## 70-85s
 
 Show MCP tool output:
 
@@ -57,7 +73,7 @@ Say:
 
 > Other agents can verify the paid proof before making lending, underwriting, treasury, or risk decisions.
 
-## 80-90s
+## 85-95s
 
 Close:
 

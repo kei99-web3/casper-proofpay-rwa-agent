@@ -6,6 +6,7 @@
   "scripts": {
     "demo": "node src/index.js",
     "payload": "node scripts/generate-submission-payload.js",
+    "casper:commands": "node scripts/print-casper-client-template.js",
     "readiness": "node scripts/check-readiness.js",
     "test": "node test/proofpay-agent.test.js",
     "verify": "npm test && node src/index.js"
