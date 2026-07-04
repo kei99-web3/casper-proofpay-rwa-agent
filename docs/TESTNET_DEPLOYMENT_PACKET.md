@@ -16,13 +16,22 @@ Codex/automation should not take custody of private keys, seed phrases, or walle
 1. Create or select a Casper Testnet account.
 2. Request faucet funds.
 3. Build/deploy the Odra contract project under `contract/`.
-4. Generate the local proof payload:
+4. Verify local tools:
+
+```bash
+cargo --version
+cargo install cargo-odra
+cargo install casper-client
+casper-client --version
+```
+
+5. Generate the local proof payload:
 
 ```bash
 npm run payload
 ```
 
-5. Generate a non-secret command template:
+6. Generate a non-secret command template:
 
 ```bash
 npm run casper:commands
@@ -30,7 +39,7 @@ npm run casper:commands
 
 This prints placeholder commands. Do not paste private keys or seed phrases anywhere.
 
-6. Call `record_proof_receipt` with the generated `proofReceiptArgs`:
+7. Call `record_proof_receipt` with the generated `proofReceiptArgs`:
 
 ```json
 {
@@ -43,9 +52,9 @@ This prints placeholder commands. Do not paste private keys or seed phrases anyw
 }
 ```
 
-7. Update `docs/SUBMISSION_FORM_DRAFT.md` with the contract address/hash and transaction hash.
-8. Record or update the demo video so it shows the Testnet proof.
-9. Run `npm run readiness`; it should move from `needs_more_evidence` to `ready_to_submit_after_user_approval` after the Testnet fields are filled.
+8. Update `docs/SUBMISSION_FORM_DRAFT.md` with the contract address/hash and transaction hash.
+9. Record or update the demo video so it shows the Testnet proof.
+10. Run `npm run readiness`; it should move from `needs_more_evidence` to `ready_to_submit_after_user_approval` after the Testnet fields are filled.
 
 ## Local Build Shape
 
@@ -65,6 +74,7 @@ Build command:
 ```bash
 cd contract
 cargo install cargo-odra
+cargo install casper-client
 cargo odra build
 ```
 
@@ -74,7 +84,7 @@ Codex could not verify this locally because Rust/Cargo is not installed in the A
 
 The exact command depends on the final build toolchain and chosen node URL. The official Casper docs currently describe:
 
-- installing a contract with a compiled Wasm, Casper CLI client, Casper account key pair, and faucet-funded Testnet account
+- installing a contract with a compiled Wasm, Casper CLI client, Casper account key pair, faucet-funded Testnet account, and `put-deploy`
 - calling a contract by hash with an entry point and session arguments
 
 Do not paste a real secret key path, private key, seed phrase, or wallet file into GitHub issues, chat, README, or DoraHacks text fields.

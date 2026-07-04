@@ -90,6 +90,7 @@ npm run casper:commands
 ```bash
 cd contract
 cargo install cargo-odra
+cargo install casper-client
 cargo odra build
 ```
 

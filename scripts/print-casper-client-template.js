@@ -11,15 +11,12 @@ function main() {
   const args = payload.proofReceiptArgs;
 
   const installCommand = [
-    "casper-client put-transaction session \\",
+    "casper-client put-deploy \\",
     "  --node-address https://node.testnet.cspr.cloud \\",
     "  --chain-name casper-test \\",
     "  --secret-key <LOCAL_SECRET_KEY_PATH_DO_NOT_SHARE> \\",
-    "  --gas-price-tolerance 10 \\",
-    "  --pricing-mode fixed \\",
-    "  --transaction-path contract/wasm/proof_receipt_registry.wasm \\",
-    "  --session-entry-point call \\",
-    "  --category install-upgrade"
+    "  --payment-amount <INSTALL_PAYMENT_AMOUNT_IN_MOTES> \\",
+    "  --session-path contract/wasm/proof_receipt_registry.wasm"
   ].join("\n");
 
   const callTemplate = [
@@ -40,9 +37,14 @@ function main() {
 
   console.log(JSON.stringify({
     warning: "Template only. Keep <LOCAL_SECRET_KEY_PATH_DO_NOT_SHARE> on your own machine and never paste key contents into chat, GitHub, or DoraHacks.",
+    tools: [
+      "cargo --version",
+      "cargo install cargo-odra",
+      "cargo install casper-client",
+      "casper-client --version"
+    ],
     build: [
       "cd contract",
-      "cargo install cargo-odra",
       "cargo odra build"
     ],
     installCommand,
