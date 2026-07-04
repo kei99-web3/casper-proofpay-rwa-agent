@@ -6,6 +6,8 @@ It lets AI lending, underwriting, treasury, and risk agents buy verified real-wo
 
 Current status: local deterministic prototype and Casper Testnet receipt design. The repository contains no wallet, private key, faucet token, API key, customer data, or live transaction.
 
+Build status: the Odra contract builds locally to `contract/wasm/ProofReceiptRegistry.wasm`. The checked WSL build output sha256 is `1a9add6be7dfc1dd2023c1c752fbc252890db22c0415adb137fd9e3c8a19bbcf`. A live Casper Testnet deploy and `record_proof_receipt` call still require user-controlled signing.
+
 Public repository: https://github.com/kei99-web3/casper-proofpay-rwa-agent
 
 Demo page: https://kei99-web3.github.io/casper-proofpay-rwa-agent/
@@ -64,7 +66,11 @@ scripts/
 contract/
   Cargo.toml                  Minimal Odra contract manifest
   Odra.toml                   ProofReceiptRegistry build target
+  Cargo.lock                  Reproducible Rust dependency lockfile
+  rust-toolchain              Nightly toolchain pin for Odra 2.8.x
+  bin/                        Odra build/schema binaries
   src/proof_receipt_registry.rs
+  wasm/ProofReceiptRegistry.wasm
   README.md                  Testnet deployment plan
 demo/
   index.html               Static judge demo

@@ -18,7 +18,8 @@ Purpose: public candidate repository for the Casper Agentic Buildathon 2026.
 - short draft demo video
 - MCP-style tool schemas
 - x402-shaped payment flow mock
-- Odra-style Casper proof receipt registry skeleton with `Cargo.toml`, `Odra.toml`, and `src/proof_receipt_registry.rs`
+- buildable Odra Casper proof receipt registry with `Cargo.toml`, `Odra.toml`, `Cargo.lock`, `rust-toolchain`, build bins, and `src/proof_receipt_registry.rs`
+- compiled `contract/wasm/ProofReceiptRegistry.wasm`
 - judging and submission docs
 - deterministic submission payload generator
 - non-secret Casper CLI command template generator
@@ -43,9 +44,17 @@ Run:
 npm test
 npm run demo
 npm run payload
+npm run casper:commands
 npm run readiness
 ```
 
 `npm run readiness` is expected to return `needs_more_evidence` until the Casper Testnet contract/package hash and `record_proof_receipt` transaction hash are filled.
 
-Status: public repo/demo/payload ready; Testnet deploy and final DoraHacks submission still require user-controlled account actions.
+Wasm build verified in WSL:
+
+```text
+contract/wasm/ProofReceiptRegistry.wasm
+sha256: 1a9add6be7dfc1dd2023c1c752fbc252890db22c0415adb137fd9e3c8a19bbcf
+```
+
+Status: public repo/demo/payload/Wasm ready; Testnet deploy and final DoraHacks submission still require user-controlled account actions.

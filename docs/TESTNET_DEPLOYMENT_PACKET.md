@@ -1,6 +1,6 @@
 # Testnet Deployment Packet
 
-This project is prepared for a user-controlled Casper Testnet proof step. The local repository now includes an Odra project skeleton, but the final build, wallet, faucet, deploy, and transaction signing must happen in the submitter's own environment.
+This project is prepared for a user-controlled Casper Testnet proof step. The local repository includes a buildable Odra contract. Codex verified the build in WSL, but wallet, deploy, and transaction signing must happen in the submitter's own environment.
 
 Codex/automation should not take custody of private keys, seed phrases, or wallet files. The submitter should run the wallet/faucet/signing steps in their own environment and paste only public artifacts back into the submission draft.
 
@@ -64,9 +64,16 @@ The Odra docs currently describe `cargo odra build` as the build command that ge
 contract/
   Cargo.toml
   Odra.toml
+  Cargo.lock
+  rust-toolchain
+  bin/
+    build_contract.rs
+    build_schema.rs
   src/
     lib.rs
     proof_receipt_registry.rs
+  wasm/
+    ProofReceiptRegistry.wasm
 ```
 
 Build command:
@@ -78,7 +85,15 @@ cargo install casper-client
 cargo odra build
 ```
 
-Codex could not verify this locally because Rust/Cargo is not installed in the AI_Workspace execution environment. Verify it on the machine that will run the user-controlled deploy.
+Codex verified `cargo odra build` in WSL on 2026-07-04. Output:
+
+```text
+contract/wasm/ProofReceiptRegistry.wasm
+size: 251K
+sha256: 1a9add6be7dfc1dd2023c1c752fbc252890db22c0415adb137fd9e3c8a19bbcf
+```
+
+If you rebuild locally, use the same output path in the Casper client template.
 
 ## Casper CLI Shape
 

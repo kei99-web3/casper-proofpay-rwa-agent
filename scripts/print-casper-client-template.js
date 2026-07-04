@@ -1,6 +1,7 @@
 "use strict";
 
 const { createSubmissionPayload } = require("../src/submission-payload");
+const WASM_PATH = "contract/wasm/ProofReceiptRegistry.wasm";
 
 function q(value) {
   return `'${String(value).replace(/'/g, "'\"'\"'")}'`;
@@ -16,7 +17,7 @@ function main() {
     "  --chain-name casper-test \\",
     "  --secret-key <LOCAL_SECRET_KEY_PATH_DO_NOT_SHARE> \\",
     "  --payment-amount <INSTALL_PAYMENT_AMOUNT_IN_MOTES> \\",
-    "  --session-path contract/wasm/proof_receipt_registry.wasm"
+    `  --session-path ${WASM_PATH}`
   ].join("\n");
 
   const installCommandTransaction = [
@@ -26,7 +27,7 @@ function main() {
     "  --secret-key <LOCAL_SECRET_KEY_PATH_DO_NOT_SHARE> \\",
     "  --gas-price-tolerance 10 \\",
     "  --pricing-mode fixed \\",
-    "  --transaction-path contract/wasm/proof_receipt_registry.wasm \\",
+    `  --transaction-path ${WASM_PATH} \\`,
     "  --session-entry-point call \\",
     "  --category install-upgrade"
   ].join("\n");
@@ -57,8 +58,10 @@ function main() {
     ],
     build: [
       "cd contract",
-      "cargo odra build"
+      "cargo odra build",
+      `ls wasm/ProofReceiptRegistry.wasm`
     ],
+    wasmPath: WASM_PATH,
     installCommandQuickstart,
     installCommandTransaction,
     callTemplate,

@@ -96,7 +96,14 @@ cargo install casper-client
 cargo odra build
 ```
 
-このCodex環境ではRust/Cargoが入っていなかったため、上記ビルドはあなたのPC側で確認してください。
+Codex側ではWSLでこのビルドを確認済みです。生成物は以下です。
+
+```text
+contract/wasm/ProofReceiptRegistry.wasm
+sha256: 1a9add6be7dfc1dd2023c1c752fbc252890db22c0415adb137fd9e3c8a19bbcf
+```
+
+あなたのPCで再ビルドする場合も、このWasmファイルをdeploy対象にします。
 
 ### 7. Contract deploy hashを保存する
 

@@ -10,11 +10,12 @@ Use this checklist before pressing the DoraHacks submit button.
 - [x] README explains the revenue proof market narrative.
 - [x] `npm test` passes.
 - [x] `npm run payload` prints deterministic `record_proof_receipt` args.
+- [x] `cargo odra build` produces `contract/wasm/ProofReceiptRegistry.wasm`.
 - [ ] Final demo video includes real Casper Testnet evidence.
 
 ## Casper Testnet Evidence
 
-- [ ] Casper Testnet account was funded by faucet.
+- [x] Casper Testnet account was funded by faucet.
 - [ ] `ProofReceiptRegistry` or equivalent receipt contract was deployed.
 - [ ] Contract/package hash is recorded.
 - [ ] `record_proof_receipt` or equivalent transaction was submitted.

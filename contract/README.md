@@ -27,7 +27,16 @@ record_proof_receipt(proof_id, proof_root, payment_hash, receipt_hash, quality_s
 
 ## Current State
 
-The canonical contract source is `src/proof_receipt_registry.rs`. The repository can be reviewed locally without a wallet. A real Casper Testnet deploy requires:
+The canonical contract source is `src/proof_receipt_registry.rs`. The repository can be reviewed and built locally without a wallet.
+
+Verified WSL build output:
+
+```text
+contract/wasm/ProofReceiptRegistry.wasm
+sha256: 1a9add6be7dfc1dd2023c1c752fbc252890db22c0415adb137fd9e3c8a19bbcf
+```
+
+A real Casper Testnet deploy still requires:
 
 1. Casper Testnet account controlled by the submitter.
 2. Faucet funds.
@@ -41,9 +50,16 @@ The canonical contract source is `src/proof_receipt_registry.rs`. The repository
 contract/
   Cargo.toml
   Odra.toml
+  Cargo.lock
+  rust-toolchain
+  bin/
+    build_contract.rs
+    build_schema.rs
   src/
     lib.rs
     proof_receipt_registry.rs
+  wasm/
+    ProofReceiptRegistry.wasm
 ```
 
 Build command:
@@ -54,7 +70,7 @@ cargo install cargo-odra
 cargo odra build
 ```
 
-The current Codex environment does not have `cargo` installed, so the Rust/Odra build must be verified in the submitter's local environment before Testnet deploy.
+Odra 2.8.x uses a pinned nightly toolchain. If `wasm-opt` fails on Ubuntu because the distro Binaryen is too old, install a newer Binaryen release and ensure `wasm-opt` is on `PATH`. If `wasm-strip` is missing, install WABT.
 
 ## Command Template
 

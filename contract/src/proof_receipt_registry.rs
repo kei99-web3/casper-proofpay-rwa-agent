@@ -4,7 +4,6 @@
 //! no keys, accounts, deploy configuration, or live credentials.
 
 use odra::prelude::*;
-use odra::{Mapping, Var};
 
 #[odra::module]
 pub struct ProofReceiptRegistry {
@@ -13,7 +12,6 @@ pub struct ProofReceiptRegistry {
 }
 
 #[odra::odra_type]
-#[derive(Clone, Debug, PartialEq, Eq)]
 pub struct ProofReceipt {
     pub proof_id: String,
     pub proof_root: String,

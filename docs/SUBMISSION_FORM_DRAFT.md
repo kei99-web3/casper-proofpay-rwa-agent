@@ -19,7 +19,7 @@ MCP-style tools let downstream agents verify the proof and inspect the issuer re
 - Node.js deterministic proof engine
 - x402-shaped payment challenge mock
 - MCP-style verification tool schemas
-- Odra-style Casper receipt registry scaffold
+- Buildable Odra Casper receipt registry
 - Static HTML judge demo
 
 ## Repository
