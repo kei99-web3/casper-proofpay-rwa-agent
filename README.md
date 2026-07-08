@@ -1,5 +1,8 @@
 # Casper ProofPay: Revenue Proof Market for AI Agents
 
+[![CI](https://github.com/kei99-web3/casper-proofpay-rwa-agent/actions/workflows/ci.yml/badge.svg)](https://github.com/kei99-web3/casper-proofpay-rwa-agent/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/kei99-web3/casper-proofpay-rwa-agent/actions/workflows/codeql.yml/badge.svg)](https://github.com/kei99-web3/casper-proofpay-rwa-agent/actions/workflows/codeql.yml)
+
 Casper ProofPay is an agentic revenue proof market for the Casper Agentic Buildathon 2026.
 
 It lets AI lending, underwriting, treasury, and risk agents buy verified real-world-asset revenue proofs before making financial decisions. Each proof is purchased through an x402-shaped payment flow, verified through MCP-style tools, and anchored as a receipt on Casper Testnet.
@@ -23,6 +26,16 @@ Demo page: https://kei99-web3.github.io/casper-proofpay-rwa-agent/
 Final demo video: https://github.com/kei99-web3/casper-proofpay-rwa-agent/raw/main/media/casper-proofpay-demo-final.mp4
 
 Audio credits for the final demo video are documented in `media/audio/THIRD_PARTY_AUDIO.md`.
+
+## Final Round Review Quick Links
+
+- Reviewer playbook: [`docs/FINAL_ROUND_PLAYBOOK.md`](docs/FINAL_ROUND_PLAYBOOK.md)
+- Live demo: https://kei99-web3.github.io/casper-proofpay-rwa-agent/
+- Final demo video: https://github.com/kei99-web3/casper-proofpay-rwa-agent/raw/main/media/casper-proofpay-demo-final.mp4
+- Casper Testnet receipt deploy: https://testnet.cspr.live/deploy/2da236ad980f1a82943fe5485d36fdaa6c3c1cdd8b38dd42808aaaf1b25b3994
+- Contract package hash: `b1ba96bf374ab52f3f6560a5e88ce4fe56324eb7846c5751f7f2c4ca90e499f2`
+- Security policy: [`SECURITY.md`](SECURITY.md)
+- Contribution and public-boundary notes: [`CONTRIBUTING.md`](CONTRIBUTING.md)
 
 ## Why This Fits Casper
 
@@ -83,6 +96,7 @@ contract/
 demo/
   index.html               Static judge demo
 docs/
+  FINAL_ROUND_PLAYBOOK.md
   JUDGING_REQUIREMENTS.md
   DEMO_VIDEO_SCRIPT.md
   APPROVAL_AND_SECURITY.md

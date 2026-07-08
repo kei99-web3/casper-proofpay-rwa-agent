@@ -1,0 +1,81 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  node-and-submission-checks:
+    name: Node demo and submission checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run deterministic tests
+        run: npm test
+
+      - name: Verify demo output
+        run: npm run demo
+
+      - name: Verify Testnet payload
+        run: npm run payload
+
+      - name: Verify submission readiness
+        run: npm run readiness
+
+      - name: Verify committed Casper Wasm checksum
+        run: |
+          test -f contract/wasm/ProofReceiptRegistry.wasm
+          echo "1a9add6be7dfc1dd2023c1c752fbc252890db22c0415adb137fd9e3c8a19bbcf  contract/wasm/ProofReceiptRegistry.wasm" | sha256sum -c -
+
+  public-boundary-check:
+    name: Public boundary check
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Check that private runtime files are absent
+        shell: bash
+        run: |
+          set -euo pipefail
+          forbidden_paths=(
+            ".env"
+            ".env.local"
+            "private"
+            "wallet"
+            "secrets"
+            "casper-proofpay-key"
+          )
+          for path in "${forbidden_paths[@]}"; do
+            if find . -path "./.git" -prune -o -iname "$path" -print | grep -q .; then
+              echo "Forbidden private path found: $path"
+              exit 1
+            fi
+          done
+
+      - name: Scan for obvious committed secret material
+        shell: bash
+        run: |
+          set -euo pipefail
+          if grep -RInE "(-----BEGIN (RSA |OPENSSH |EC |DSA )?PRIVATE KEY-----|ghp_[A-Za-z0-9_]{20,}|github_pat_[A-Za-z0-9_]{20,}|sk-[A-Za-z0-9]{20,}|(API_KEY|SECRET_KEY|ACCESS_TOKEN|PRIVATE_KEY)=)" \
+            --exclude-dir=.git \
+            --exclude=package-lock.json \
+            --exclude='*.mp4' \
+            --exclude='*.jpg' \
+            --exclude='*.wasm' \
+            .; then
+            echo "Potential secret-like string found. Review before publishing."
+            exit 1
+          fi

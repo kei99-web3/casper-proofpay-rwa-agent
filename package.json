@@ -12,6 +12,9 @@
     "verify": "npm test && node src/index.js"
   },
   "keywords": [
+    "casper-blockchain",
+    "casper-network",
+    "buildathon",
     "casper",
     "agentic-ai",
     "x402",
